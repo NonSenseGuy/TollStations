@@ -21,26 +21,61 @@ namespace TollStations.Model
         public void LoadTollStations()
         {
             List<Toll> auxTolls = new List<Toll>();
-            StreamReader sr = new StreamReader("../../resources/Tabla_de_Costos_de_Peajes.csv");
+            StreamReader sr = new StreamReader("../../../resources/Estaciones_de_peaje.csv");
             string line;
             sr.ReadLine(); // Skips first line of the csv file 
             while((line = sr.ReadLine()) != null)
             {
                 string[] values = line.Split(',');
-                int latitude = ToInteger(values[2]);
-                int longitude = ToInteger(values[3]);
+                double latitude = ToDouble(Join(values[2].Split('.'), 1));
+                //string msg = Join(values[2].Split('.'), 1);
+                //System.Windows.Forms.MessageBox.Show(msg);
+                double longitude = ToDouble(Join(values[3].Split('.'), 2));
                 string name = values[4];
                 string description = values[5];
                 string updateDate = values[6];
-                Toll t = new Toll(latitude, longitude, name, description, updateDate);
+                int price = ToInteger(values[10]);
+                Toll t = new Toll(latitude, longitude, name, description, updateDate, price);
+                Console.WriteLine(latitude + ", " + longitude);
+                auxTolls.Add(t);
             }
+            TollStations = auxTolls;
+        }
+
+        public string Join(string[] value, int index)
+        {
+            string msg = "";
+            for (int i = 0; i < value.Length; i++)
+            {
+                msg += value[i];
+            }
+            char splitValue = msg.ElementAt(index);
+            string[] res = msg.Split(splitValue);
+            if(index == 2)
+            {
+                return res[0] + splitValue + "," + res[1];
+            }
+            else
+            {
+                return res[0] + "," + splitValue + res[1];
+            }
+            
         }
 
         public int ToInteger(string intString)
         {
-            if (!Int32.TryParse(intString, out int i))
+            if(!Int32.TryParse(intString, out int i))
             {
                 i = -1;
+            }
+            return i;
+        }
+
+        public double ToDouble(string doubleString)
+        {
+            if(!double.TryParse(doubleString, out double i))
+            {
+                i = -1.0;
             }
             return i;
         }

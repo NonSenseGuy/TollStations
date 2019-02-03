@@ -8,19 +8,21 @@ namespace TollStations.Model
 {
     class Toll
     {
-        public int Latitude { get; set; }
-        public int Longitude { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string UpdateDate { get; set; }
+        public int Price { get; set; }
 
-        public Toll(int _lat, int _long, string _name, string _description, string _updateDate)
+        public Toll(double _lat, double _long, string _name, string _description, string _updateDate, int _price)
         {
             Latitude = _lat;
             Longitude = _long;
             Name = _name;
             Description = _description;
             UpdateDate = _updateDate;
+            Price = _price;
         }
 
 

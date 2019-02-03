@@ -48,13 +48,7 @@ namespace TollStations
                 
             }
             gmap.Overlays.Add(markersOverlay);
-            /**
-            Toll t = country.TollStations[0];
-            GMapOverlay markersOverLay = new GMapOverlay("markers");
-            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(t.Latitude, t.Longitude),GMarkerGoogleType.green);
-            markersOverLay.Markers.Add(marker);
-            gmap.Overlays.Add(markersOverLay);
-        **/
+
 
 
         }

@@ -28,8 +28,6 @@ namespace TollStations.Model
             {
                 string[] values = line.Split(',');
                 double latitude = ToDouble(Join(values[2].Split('.'), 1));
-                //string msg = Join(values[2].Split('.'), 1);
-                //System.Windows.Forms.MessageBox.Show(msg);
                 double longitude = ToDouble(Join(values[3].Split('.'), 2));
                 string name = values[4];
                 string description = values[5];

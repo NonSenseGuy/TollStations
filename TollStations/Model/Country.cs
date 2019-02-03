@@ -70,15 +70,16 @@ namespace TollStations.Model
             }
             return i;
         }
-
+        
         public double ToDouble(string doubleString)
         {
             if(!decimal.TryParse(doubleString, out decimal i))
             {
                 i = -1;
             }
-            var numberAsDouble = ((double)((long)(i * 10000000.0m))) / 10000000.0;
+            double numberAsDouble = ((double)((long)(i * 10000000.0m))) / 10000000.0;
             return numberAsDouble;
         }
+
     }
 }

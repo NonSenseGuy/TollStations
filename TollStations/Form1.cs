@@ -30,6 +30,7 @@ namespace TollStations
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.Position = new PointLatLng(3.900749, -73.073215);
+            nTollsLabel.Text = country.TollStations.Count +"";
         }
 
         private void gmap_Load(object sender, EventArgs e)
@@ -55,6 +56,11 @@ namespace TollStations
             gmap.Overlays.Add(markersOverLay);
         **/
 
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

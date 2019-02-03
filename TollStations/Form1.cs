@@ -41,7 +41,8 @@ namespace TollStations
                 Console.WriteLine(t.Latitude + " , " + t.Longitude);
                 GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(t.Latitude, t.Longitude),
                   GMarkerGoogleType.green);
-                marker.ToolTipText = t.Price + "";
+                marker.ToolTipText = t.Price + " $ \n " + t.Name + "\n" + t.Description + "\n" +t.Latitude + " , " + t.Longitude;
+                
                 markersOverlay.Markers.Add(marker);
                 
             }

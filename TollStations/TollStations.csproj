@@ -82,6 +82,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Cleaner.cs" />
     <Compile Include="Model\Country.cs" />
     <Compile Include="Model\Toll.cs" />
     <Compile Include="Program.cs" />

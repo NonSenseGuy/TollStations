@@ -21,7 +21,7 @@ namespace TollStations.Model
         public void LoadTollStations()
         {
             List<Toll> auxTolls = new List<Toll>();
-            StreamReader sr = new StreamReader("../../../resources/Estaciones_de_peaje.csv");
+            StreamReader sr = new StreamReader("../../../resources/EstacionesDePeaje.csv");
             string line;
             sr.ReadLine(); // Skips first line of the csv file 
             while((line = sr.ReadLine()) != null)
@@ -73,11 +73,12 @@ namespace TollStations.Model
 
         public double ToDouble(string doubleString)
         {
-            if(!double.TryParse(doubleString, out double i))
+            if(!decimal.TryParse(doubleString, out decimal i))
             {
-                i = -1.0;
+                i = -1;
             }
-            return i;
+            var numberAsDouble = ((double)((long)(i * 10000000.0m))) / 10000000.0;
+            return numberAsDouble;
         }
     }
 }
